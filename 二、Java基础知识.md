@@ -7,7 +7,7 @@
 - [java-tutorial](https://www.javatpoint.com/java-tutorial)
 - [Java 教程](https://www.runoob.com/java/java-tutorial.html)
 
-推荐无聊的时候，读一读《Java编程思想》
+推荐无聊的时候，读一读[《Java编程思想》](http://blog.didispace.com/books/think-in-java/)
 
 ## Java核心
 

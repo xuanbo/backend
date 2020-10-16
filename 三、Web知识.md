@@ -1,10 +1,12 @@
 # Web知识
 
-> 即编写服务端程序，操作数据库、缓存，结合各种中间件编写业务逻辑，提供API
+> 即编写服务端程序，操作数据库、缓存，结合各种中间件编写业务逻辑，提供 API
 
 ## Servlet
 
 > 服务端程序规范，需要运行在 Web 容器中，比如：Tomcat、Jetty
+
+推荐无聊的时候，读一读[《Java Servlet 3.1 规范》](https://github.com/waylau/servlet-3.1-specification)
 
 - Servlet
 - Filter
@@ -19,6 +21,8 @@
 ## JDBC
 
 > 数据库连接、增删改查等数据库操作规范，需要由不同的数据库厂商（比如MySQL、Oracle）实现该规范，即数据库驱动。
+
+推荐无聊的时候，读一读[《JDBC 4.2 规范》](https://github.com/waylau/jdbc-specification)
 
 - [JDBC 使用说明](https://www.runoob.com/w3cnote/jdbc-use-guide.html)
 - 数据库连接池

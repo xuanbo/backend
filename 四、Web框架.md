@@ -10,6 +10,10 @@
 
 也许，国内最早的 JAVA 架构师是为了整合各大框架的吧？
 
+推荐无聊的时候，读一读：
+
+- [《Spring实战（第4版）》](http://www.java1234.com/a/javabook/javaweb/2016/1102/7020.html)
+
 ## Spring
 
 > Spring 是一个大家庭，这里的 Spring 主要指其核心，即 IOC、AOP 部分。
@@ -41,6 +45,10 @@
 - 动态SQL
 - 拦截器
 
+博客推荐：
+
+- [Mybatis教程-实战看这一篇就够了](https://www.cnblogs.com/diffx/p/10611082.html)
+
 ## Jedis
 
 > Redis Java 操作库
@@ -48,6 +56,7 @@
 - Redis 五大数据结构基本使用
 - 分布式锁
 - 限流
+- 发布订阅
 
 ## Spring Data Redis
 
