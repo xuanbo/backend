@@ -1,0 +1,26 @@
+server:
+  # 端口
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_boot_redis_simple?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    username: root
+    password: 123456
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+    password:
+    timeout: 3000
+  cache:
+    type: redis
+    redis:
+      # 过期时间（ms）
+      time-to-live: 300_000
+
+logging:
+  root: INFO
+  level:
+    tk.fishfish: DEBUG

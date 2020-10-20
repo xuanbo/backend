@@ -10,7 +10,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-boot-simple</artifactId>
+    <artifactId>spring-boot-redis-simple</artifactId>
     <packaging>jar</packaging>
 
     <!-- https://mvnrepository.com/ -->
@@ -42,6 +42,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <!-- redis集成（缓存） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
 
