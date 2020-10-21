@@ -13,3 +13,7 @@ logging:
   root: INFO
   level:
     tk.fishfish: DEBUG
+
+simple:
+  # 文件上传文件存储接口，需要事先创建目录
+  uploadDir: ./upload

@@ -5,3 +5,11 @@ CREATE TABLE city
   state   VARCHAR(20),
   country VARCHAR(20)
 );
+
+CREATE TABLE file
+(
+  id      VARCHAR(50) PRIMARY KEY,
+  name    VARCHAR(50),
+  size    INT(20),
+  createTime DATETIME
+);

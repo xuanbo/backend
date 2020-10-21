@@ -15,6 +15,14 @@ CREATE TABLE city
   state   VARCHAR(20),
   country VARCHAR(20)
 );
+
+CREATE TABLE file
+(
+  id      VARCHAR(50) PRIMARY KEY,
+  name    VARCHAR(50),
+  size    INT(20),
+  createTime DATETIME
+);
 ```
 
 ![image](./docs/database.png)
@@ -47,6 +55,14 @@ spring:
 
 ![find_city](docs/find_city.png)
 
+### 文件上传
+
+![upload_file](./docs/upload_file.png)
+
+### 文件下载
+
+![download_file](./docs/download_file.png)
+
 ## 注意
 
 接下来就需要你了解：
@@ -61,6 +77,6 @@ spring:
 
 - spring mvc 的参数绑定
 
-    接收前端的参数，响应
+    接收前端的参数，响应；文件上传、下载
 
 快去完善这个例子吧～
