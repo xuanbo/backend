@@ -8,5 +8,6 @@
 
 ## 模块
 
+- [jdbc基础](./jdbc-simple)
 - [web项目](./spring-boot-simple)
 - [web项目增加缓存](./spring-boot-redis-simple)
