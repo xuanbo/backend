@@ -61,13 +61,12 @@ public class CityController {
     }
 
     /**
-     * 主键查询
+     * 根据主键删除
      *
      * @param id 主键
-     * @return 城市
      */
     @DeleteMapping("/{id}")
-    public ApiResult<Void> insert(@PathVariable String id) {
+    public ApiResult<Void> deleteById(@PathVariable String id) {
         cityService.deleteById(id);
         return ApiResult.ok();
     }
