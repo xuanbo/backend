@@ -1,7 +1,6 @@
 package tk.fishfish.simple.framework;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * 树
@@ -29,11 +28,6 @@ public class Tree {
         private String name;
 
         /**
-         * 支持方法
-         */
-        private Set<String> methods;
-
-        /**
          * 处理器
          */
         private Handler handler;
@@ -59,14 +53,6 @@ public class Tree {
             this.name = name;
         }
 
-        public Set<String> getMethods() {
-            return methods;
-        }
-
-        public void setMethods(Set<String> methods) {
-            this.methods = methods;
-        }
-
         public Handler getHandler() {
             return handler;
         }
@@ -88,7 +74,6 @@ public class Tree {
             return "Node{" +
                     "id='" + id + '\'' +
                     ", name='" + name + '\'' +
-                    ", methods=" + methods +
                     ", handler=" + handler +
                     ", children=" + children +
                     '}';

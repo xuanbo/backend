@@ -1,13 +1,12 @@
 package tk.fishfish.simple.framework;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * 默认路由（前缀树路由算法）
+ * 默认路由（前缀树算法）
  *
  * @author 奔波儿灞
  * @since 1.0.0
@@ -28,12 +27,23 @@ public enum DefaultRouter implements Router {
     private static final String HTTP_PUT = "PUT";
     private static final String HTTP_DELETE = "DELETE";
 
-    private final Tree.Node root;
+    /**
+     * 每个请求方法的处理器对应一棵前缀树
+     */
+    private final Map<String, Tree.Node> roots = new HashMap<>();
 
     DefaultRouter() {
-        this.root = new Tree.Node();
-        this.root.setId("/");
-        this.root.setName("/");
+        roots.put(HTTP_GET, createRoot());
+        roots.put(HTTP_POST, createRoot());
+        roots.put(HTTP_PUT, createRoot());
+        roots.put(HTTP_DELETE, createRoot());
+    }
+
+    private Tree.Node createRoot() {
+        Tree.Node root = new Tree.Node();
+        root.setId("/");
+        root.setName("/");
+        return root;
     }
 
     @Override
@@ -66,6 +76,10 @@ public enum DefaultRouter implements Router {
 
     @Override
     public Handler match(String path, String method, Map<String, Object> namingParams) {
+        Tree.Node root = roots.get(method);
+        if (root == null) {
+            return null;
+        }
         if (path == null) {
             throw new IllegalArgumentException("路径不能为空");
         }
@@ -93,10 +107,7 @@ public enum DefaultRouter implements Router {
                 return null;
             }
         }
-        if (node.getMethods().contains(method)) {
-            return node.getHandler();
-        }
-        return null;
+        return node.getHandler();
     }
 
     private void checkArgs(String path, Handler handler) {
@@ -115,6 +126,10 @@ public enum DefaultRouter implements Router {
     }
 
     private void add(String method, String path, Handler handler) {
+        Tree.Node root = roots.get(method);
+        if (root == null) {
+            throw new IllegalArgumentException("请求方法不支持: " + method);
+        }
         path = path.substring(1);
         String[] names = path.split(PATH);
         Tree.Node node = root;
@@ -128,12 +143,6 @@ public enum DefaultRouter implements Router {
                 throw new IllegalArgumentException("处理器以存在，重复注册");
             }
         }
-        Set<String> methods = node.getMethods();
-        if (methods == null) {
-            methods = new HashSet<>();
-            node.setMethods(methods);
-        }
-        methods.add(method);
     }
 
     private Tree.Node find(Tree.Node parent, String name) {
@@ -162,13 +171,6 @@ public enum DefaultRouter implements Router {
             node.setChildren(nodes);
         }
         return nodes;
-    }
-
-    @Override
-    public String toString() {
-        return "DefaultRouter{" +
-                "root=" + root +
-                '}';
     }
 
 }
