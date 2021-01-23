@@ -1,5 +1,6 @@
 package tk.fishfish.simple.service.impl;
 
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import tk.fishfish.simple.entity.City;
 import tk.fishfish.simple.mapper.CityMapper;
@@ -17,9 +18,11 @@ import java.util.UUID;
 public class CityServiceImpl implements CityService {
 
     private final CityMapper cityMapper;
+    private final StringRedisTemplate redisTemplate;
 
-    public CityServiceImpl(CityMapper cityMapper) {
+    public CityServiceImpl(CityMapper cityMapper, StringRedisTemplate redisTemplate) {
         this.cityMapper = cityMapper;
+        this.redisTemplate = redisTemplate;
     }
 
     @Override
@@ -38,6 +41,7 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public City findById(String id) {
+        redisTemplate.convertAndSend("simple:topic:city:findById", id);
         return cityMapper.findById(id);
     }
 

@@ -47,7 +47,7 @@ public class SimpleRouterDefinition implements RouterDefinition {
         });
         
         // 匹配 /v1/xxx
-        router.get("/v1/:name", ctx -> {
+        router.get("/v1/book/:name", ctx -> {
             HttpServletRequest req = ctx.req();
             HttpServletResponse resp = ctx.resp();
             resp.getWriter().println("GET " + req.getRequestURI());

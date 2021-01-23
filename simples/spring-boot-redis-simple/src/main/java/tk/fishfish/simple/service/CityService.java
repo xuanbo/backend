@@ -2,7 +2,6 @@ package tk.fishfish.simple.service;
 
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import tk.fishfish.simple.entity.City;
 
@@ -21,7 +20,7 @@ public interface CityService {
      * @param city 城市
      * @return 城市
      */
-    @CachePut(key = "'id:' + #p0.id")
+    @CacheEvict(key = "'id:' + #p0.id")
     City insert(City city);
 
     /**
@@ -30,7 +29,7 @@ public interface CityService {
      * @param city 城市
      * @return 城市
      */
-    @CachePut(key = "'id:' + #p0.id")
+    @CacheEvict(key = "'id:' + #p0.id")
     City update(City city);
 
     /**
